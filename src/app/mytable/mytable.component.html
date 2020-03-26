@@ -1,0 +1,63 @@
+<header class="d-flex mb-3 justify-content-between">
+  <h2>Manager Product</h2>
+   <button type="button" class="btn btn-primary" (click)="addProduct()" >Add product</button>
+   <button type="button" class="btn btn-primary" (click)="editProduct()" >Edit product</button>
+
+</header>
+<form>
+    <div class="form-group">
+        <label for="">ID</label>
+        <input type="number" class="form-control" name="id"[(ngModel)]="product.id">
+    </div>
+    <div class="form-group">
+        <label for="">Product Name</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="product.name" >
+    </div>
+   
+    <div class="form-group">
+      
+        <label for="Price">Price</label>
+     <input type="number" class="form-control" name="price" id="Price"  [(ngModel)]="product.price">
+    </div>
+    <div class="form-group">
+        <label for="">Desc</label>
+        <input type="text" class="form-control" name="desc" [(ngModel)]="product.desc">
+    </div>
+    <div class="form-group">
+        <label for="">Image</label>
+        <input type="text" class="form-control" name="img" [(ngModel)]="product.img">
+    </div>
+ 
+</form>
+
+<div class="SumProduct" style="padding-top:45px">
+	<h2>Product</h2>
+	<table class="table table-bordered table-hover" id="mau1">
+		<thead>
+			<tr>
+				<th>Stt</th>
+				<th>Name</th>
+				<th>Price</th>
+        <th>Desc</th>
+        <th>Image</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody *ngFor="let product of products,index as  i">
+			<tr>
+				<td>{{i}}</td>
+				<td>{{product.name}}</td>
+				<td>${{product.price}}</td>
+        <td>{{product.desc}}</td>
+        <td>{{product.img}}</td>
+
+				<td style="text-align:center;">
+					<div class="btn-group">
+						<button class="btn btn-primary" routerLink ="/product/edit/{{product.id}}">Edit</button>
+						<button class="btn btn-primary" (click)="xoa(product.id)">Remove</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,13 @@
+<div *ngIf="product"> 
+  <table>
+    <thead>
+      <th><img src="{{product.img}}" alt="ảnh"></th>
+      <th style="text-align:center">
+<h1>{{product.name}}</h1>
+<h2>${{product.price}}</h2>
+<p>{{product.desc}}</p>
+<button class ="btn btn-info">add to cart</button>
+</th>
+    </thead>
+  </table>
+</div>
